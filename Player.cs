@@ -8,14 +8,14 @@ namespace TwoManSpades
 {
     class Player
     {
-        Hand Hand { get; set; }
-        string Name { get; private set; }
-        int Score { get; private set; }
-        int Bid { get; set; }
-        int Bags { get; private set; }
+        public Hand Hand { get; set; }
+        public string Name { get; private set; }
+        public int Score { get; private set; }
+        public int Bid { get; set; }
+        public int Bags { get; private set; }
 
-        const int BAGS_TO_ROLL_OVER = 10;
-        const int BAG_PENALTY = 100;
+        private const int BAGS_TO_ROLL_OVER = 10;
+        private const int BAG_PENALTY = 100;
 
         public Player(string name)
         {
@@ -36,7 +36,7 @@ namespace TwoManSpades
             }
         }
 
-        public void changeScore(int amountToChange)
+        public void ChangeScore(int amountToChange)
         {
             Score += amountToChange;
         }

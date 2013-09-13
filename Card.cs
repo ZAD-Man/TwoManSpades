@@ -8,8 +8,8 @@ namespace TwoManSpades
 {
     class Card
     {
-        CardSuit Suit { get; set; }
-        CardValue Value { get; set; }
+        private CardSuit Suit { get; set; }
+        private CardValue Value { get; set; }
 
         public Card(CardSuit suit, CardValue value)
         {
@@ -19,8 +19,8 @@ namespace TwoManSpades
 
         public double getCardSorterValue()
         {
-            double sorterValue = (double)Suit;
-            sorterValue += (double)Value/100d;
+            double sorterValue = (double) Suit;
+            sorterValue += (double) Value/100d;
             return sorterValue;
         }
     }

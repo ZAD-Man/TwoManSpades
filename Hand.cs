@@ -8,23 +8,23 @@ namespace TwoManSpades
 {
     class Hand
     {
-        List<Card> cards = new List<Card>();
+        private List<Card> _cards = new List<Card>();
 
-        public void addCard(Card card)
+        public void AddCard(Card card)
         {
-            cards.Add(card);
+            _cards.Add(card);
             Sort();
         }
 
         private void Sort()
         {
-            for (int i = 2; i < cards.Count; i++) //Insertion Sort
+            for (int i = 2; i < _cards.Count; i++) //Insertion Sort
             {
-                for (int k = 0; k > 1 && cards[k].getCardSorterValue() < cards[k - 1].getCardSorterValue(); k--)
+                for (int k = 0; k > 1 && _cards[k].getCardSorterValue() < _cards[k - 1].getCardSorterValue(); k--)
                 {
-                    Card tempCard = cards[k];
-                    cards[k] = cards[k - 1];
-                    cards[k - 1] = tempCard;
+                    Card tempCard = _cards[k];
+                    _cards[k] = _cards[k - 1];
+                    _cards[k - 1] = tempCard;
                 }
             }
         }

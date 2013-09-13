@@ -9,56 +9,55 @@ namespace TwoManSpades
 {
     class Deck
     {
-        static Random random = new Random();
-        List<Card> cards = new List<Card>();
+        private static Random _random = new Random();
+        private List<Card> _cards = new List<Card>();
 
         public Deck()
         {
-            resetDeck();
+            ResetDeck();
         }
 
         public void Shuffle()
         {
-            int deckSize = getDeckSize();
+            int deckSize = GetDeckSize();
             for (int i = 0; i < deckSize; i++)
             {
-                int newPosition = random.Next(deckSize);
-                Card tempCard = cards.ElementAt(i);
-                cards.RemoveAt(i);
-                cards.Insert(i, cards.ElementAt(newPosition));
-                cards.RemoveAt(newPosition);
-                cards.Insert(newPosition, tempCard);
+                int newPosition = _random.Next(deckSize);
+                Card tempCard = _cards[i];
+                _cards.RemoveAt(i);
+                _cards.Insert(i, _cards[newPosition]);
+                _cards.RemoveAt(newPosition);
+                _cards.Insert(newPosition, tempCard);
             }
         }
 
         public Card Draw()
         {
-            Card drawnCard = cards.ElementAtOrDefault(0);
-            cards.RemoveAt(0);
+            Card drawnCard = _cards.ElementAtOrDefault(0);
+            _cards.RemoveAt(0);
             return drawnCard;
         }
 
         public void AddCard(Card card)
         {
-            cards.Add(card);
+            _cards.Add(card);
         }
 
-        public int getDeckSize()
+        public int GetDeckSize()
         {
-            return cards.Count;
+            return _cards.Count;
         }
 
-        public void resetDeck()
+        public void ResetDeck()
         {
-            cards.RemoveRange(0, cards.Count);
-            foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
+            _cards.RemoveRange(0, _cards.Count);
+            foreach (CardSuit suit in Enum.GetValues(typeof (CardSuit)))
             {
-                foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
+                foreach (CardValue value in Enum.GetValues(typeof (CardValue)))
                 {
                     AddCard(new Card(suit, value));
                 }
             }
         }
-
     }
 }
