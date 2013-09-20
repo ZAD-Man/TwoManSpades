@@ -17,7 +17,7 @@ namespace TwoManSpades
             Value = value;
         }
 
-        public double getCardSorterValue()
+        public double GetCardSorterValue()
         {
             double sorterValue = (double) Suit;
             sorterValue += (double) Value/100d;

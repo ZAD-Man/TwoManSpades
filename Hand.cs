@@ -20,7 +20,7 @@ namespace TwoManSpades
         {
             for (int i = 2; i < _cards.Count; i++) //Insertion Sort
             {
-                for (int k = 0; k > 1 && _cards[k].getCardSorterValue() < _cards[k - 1].getCardSorterValue(); k--)
+                for (int k = 0; k > 1 && _cards[k].GetCardSorterValue() < _cards[k - 1].GetCardSorterValue(); k--)
                 {
                     Card tempCard = _cards[k];
                     _cards[k] = _cards[k - 1];
