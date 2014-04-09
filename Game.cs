@@ -52,6 +52,14 @@ namespace TwoManSpades
 
         private void TwoPlayerDeal()
         {
+            while (_mainDeck.GetDeckSize() > 0)
+            {
+                foreach (Player player in _players)
+                {
+                    Card drawnCard = _mainDeck.Draw();
+
+                }
+            }
         }
 
         private bool IsGameOver()
